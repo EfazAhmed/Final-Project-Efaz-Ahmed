@@ -36,8 +36,11 @@ public class ConsoleRepositoryTests {
 
     @Test
     public void shouldCreateConsole() throws Exception{
-        Optional<Console> returnVal = consoleRepository.findById(console1.getId());
-        assertEquals (console1, returnVal.get());
+        Console console = new Console("xbox", "Microsoft", "50", "intel", new BigDecimal("110.00"), 5);
+
+        assertEquals(3, consoleRepository.findAll().size());
+        console = consoleRepository.save(console);
+        assertEquals(4, consoleRepository.findAll().size());
     }
 
     @Test

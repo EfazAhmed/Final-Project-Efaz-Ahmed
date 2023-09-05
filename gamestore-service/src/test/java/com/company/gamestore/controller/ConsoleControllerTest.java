@@ -53,6 +53,13 @@ public class ConsoleControllerTest {
     }
 
     @Test
+    public void shouldGetAllConsoles() throws Exception{
+        mockMvc.perform(get("/console"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
     public void shouldUpdateConsoleById() throws Exception{
         String inputJson = mapper.writeValueAsString(console);
         mockMvc.perform(
